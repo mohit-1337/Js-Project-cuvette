@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #8cc461;
+    font-family: "Roboto", sans-serif;
+}
+
+/* head */
+.headDiv {
+    margin-inline: 250px;
+    /* side Right and Left */
+    margin-block: 50px;
+}
+
+.score {
+    border: 2px solid white;
+    border-radius: 10px;
+    display: flex;
+    gap: 50px;
+    padding: 15px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.score>h1 {
+    letter-spacing: 3px;
+    color: white;
+    font-weight: 500;
+    font-size: 38px;
+}
+
+.scoreBox {
+    display: flex;
+    gap: 50px;
+}
+
+.compScore,
+.yourScore {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    width: 135px;
+    height: 135px;
+}
+
+.compScorePara,
+.yourScorePara {
+    padding: 5px 0;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 15px;
+    color: #656565;
+}
+
+.compScoreNum,
+.yourScoreNum {
+    font-weight: 700;
+    font-size: 65px;
+}
+
+/* trangle */
+
+.mainDiv {
+    margin: 50px;
+}
+
+.baseDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.upperDiv {
+    display: flex;
+    gap: 80px;
+    align-items: center;
+}
+
+.blue,
+.white,
+.paperDiv,
+.pink {
+    background-color: transparent;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.imgRock,
+.imgScissors,
+.imgPaper {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    width: 55px;
+}
+
+.blue {
+    background-color: #0074B6 !important;
+    width: 105px;
+    height: 105px;
+}
+
+.pink {
+    background-color: #BD00FF !important;
+    width: 105px;
+    height: 105px;
+}
+
+.paperDiv {
+    background-color: #FFA943 !important;
+    width: 105px;
+    height: 105px;
+}
+
+.white {
+    width: 80px !important;
+    height: 80px !important;
+}
+
+.imgScissors {
+    width: 35px !important;
+}
+
+.line {
+    position: absolute;
+    padding: 3.5px;
+    width: 120px;
+    border: 2px solid black;
+    background-color: black;
+    margin-left: 100px;
+    z-index: -1;
+    opacity: 65%;
+}
+
+.line2 {
+    position: absolute;
+    padding: 3.5px;
+    width: 150px;
+    border: 2px solid black;
+    background-color: black;
+    margin-left: 150px;
+    z-index: -1;
+    opacity: 65%;
+    margin-top: 110px;
+    transform: rotate(-55.58deg);
+}
+.line3 {
+    position: absolute;
+    padding: 3.5px;
+    width: 150px;
+    border: 2px solid black;
+    background-color: black;
+    margin-right: 150px;
+    z-index: -1;
+    opacity: 65%;
+    margin-top: 110px;
+    transform: rotate(55.58deg);
+}
