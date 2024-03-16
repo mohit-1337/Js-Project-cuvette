@@ -68,10 +68,21 @@ body {
     font-size: 65px;
 }
 
+/* home */
+
+.home {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+    margin-bottom: 20px !important;
+}
+
 /* trangle */
 
 .mainDiv {
-    margin: 50px;
+    margin-inline: 120px;
+    margin-block: 30px;
+    position: fixed;
 }
 
 .baseDiv {
@@ -105,68 +116,177 @@ body {
     max-width: 100%;
     height: auto;
     border-radius: 50%;
-    width: 55px;
+    width: 60px;
 }
 
 .blue {
     background-color: #0074B6 !important;
-    width: 105px;
-    height: 105px;
+    width: 130px;
+    height: 130px;
 }
 
 .pink {
     background-color: #BD00FF !important;
-    width: 105px;
-    height: 105px;
+    width: 130px;
+    height: 130px;
 }
 
 .paperDiv {
     background-color: #FFA943 !important;
-    width: 105px;
-    height: 105px;
+    width: 130px;
+    height: 130px;
 }
 
 .white {
-    width: 80px !important;
-    height: 80px !important;
+    width: 100px !important;
+    height: 100px !important;
 }
 
 .imgScissors {
-    width: 35px !important;
+    width: 40px !important;
 }
 
 .line {
     position: absolute;
-    padding: 3.5px;
+    padding: 4px;
     width: 120px;
     border: 2px solid black;
     background-color: black;
     margin-left: 100px;
     z-index: -1;
-    opacity: 65%;
+    opacity: 60%;
 }
 
 .line2 {
     position: absolute;
-    padding: 3.5px;
-    width: 150px;
+    padding: 4px;
+    width: 180px;
     border: 2px solid black;
     background-color: black;
     margin-left: 150px;
     z-index: -1;
-    opacity: 65%;
+    opacity: 60%;
     margin-top: 110px;
-    transform: rotate(-55.58deg);
+    transform: rotate(-60.58deg);
 }
+
 .line3 {
     position: absolute;
-    padding: 3.5px;
-    width: 150px;
+    padding: 4px;
+    width: 180px;
     border: 2px solid black;
     background-color: black;
     margin-right: 150px;
     z-index: -1;
-    opacity: 65%;
+    opacity: 60%;
     margin-top: 110px;
-    transform: rotate(55.58deg);
+    transform: rotate(60.58deg);
+}
+
+/* notice */
+
+.notice {
+    width: 270px;
+    z-index: -1;
+    margin-top: 30px;
+    margin-left: 950px;
+}
+
+.noticeWhite {
+    background-color: white;
+    border-radius: 10px;
+    padding: 8px;
+}
+
+.noticegreen {
+    background-color: #004429;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-block: 20px !important;
+    padding-inline: 15px !important;
+}
+
+.noticegreen>h1 {
+    text-align: center;
+    color: white;
+    font-weight: 400;
+    font-size: 29px;
+}
+
+.rule {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.rules {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rules>p {
+    color: white;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 16px;
+}
+
+.dot {
+    background-color: #FFD600;
+    padding: 4px;
+}
+
+/* cancle */
+
+.cancle {
+    align-items: center;
+    position: absolute;
+    margin-left: 250px;
+    top: 50px;
+    right: 50px;
+}
+
+.cancleWhite {
+    background-color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    align-items: center;
+    padding: 5px;
+
+}
+
+.cancleRed {
+    background-color: red;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    align-items: center;
+    text-align: center;
+}
+
+.cancleRed>img {
+    color: white;
+    font-weight: 500;
+    font-size: 40px;
+    margin-top: 8px;
+}
+
+/* rulesButton */
+
+.rulesButton {
+    letter-spacing: 2px;
+    background-color: transparent;
+    padding: 7px;
+    border: 2px solid white;
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+    width: 120px;
+    font-weight: bold;
+    margin-left: 1210px;
+    cursor: pointer;
 }
