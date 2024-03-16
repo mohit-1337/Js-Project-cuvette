@@ -15,7 +15,8 @@ body {
 .headDiv {
     margin-inline: 250px;
     /* side Right and Left */
-    margin-block: 50px;
+    margin-block: 35px;
+    /* position: fixed; */
 }
 
 .score {
@@ -123,6 +124,7 @@ body {
     background-color: #0074B6 !important;
     width: 130px;
     height: 130px;
+    cursor: pointer;
 }
 
 .pink {
@@ -187,9 +189,17 @@ body {
 
 .notice {
     width: 270px;
-    z-index: -1;
     margin-top: 30px;
     margin-left: 950px;
+    opacity: 0;
+    /* Initially hide the notice */
+    transition: opacity 0.3s ease;
+    /* Add transition for opacity */
+}
+
+.notice.visible {
+    opacity: 1;
+    /* Show the notice with a smooth fade-in transition */
 }
 
 .noticeWhite {
@@ -245,8 +255,9 @@ body {
     align-items: center;
     position: absolute;
     margin-left: 250px;
-    top: 50px;
+    top: 270px;
     right: 50px;
+
 }
 
 .cancleWhite {
@@ -266,6 +277,10 @@ body {
     border-radius: 50%;
     align-items: center;
     text-align: center;
+    /* Remove or modify the z-index property */
+    z-index: 1;
+    /* Set it to 1 or a higher value */
+    cursor: pointer;
 }
 
 .cancleRed>img {
@@ -273,6 +288,7 @@ body {
     font-weight: 500;
     font-size: 40px;
     margin-top: 8px;
+
 }
 
 /* rulesButton */
@@ -287,6 +303,173 @@ body {
     border-radius: 10px;
     width: 120px;
     font-weight: bold;
-    margin-left: 1210px;
+    margin-left: 1200px;
+    position: absolute;
+    top: 280px;
+    cursor: pointer;
+}
+
+/* youWin */
+
+.winwin {
+    display: none;
+}
+
+.picked {
+    color: white;
+    letter-spacing: 2px;
+    display: flex;
+    z-index: 1;
+    gap: 440px;
+    margin-left: 400px;
+    margin-top: 30px;
+    position: absolute;
+}
+
+.youWinMainDiv {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    justify-content: center;
+}
+
+.win {
+    display: flex;
+    align-items: center;
+}
+
+.circleDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div1 {
+    background-color: rgba(46, 154, 37, 0.2);
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div2 {
+    background-color: rgba(46, 154, 37, 0.3);
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div3 {
+    background-color: rgba(46, 154, 37);
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div4 {
+    background-color: #BD00FF;
+    width: 185px;
+    height: 185px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div5 {
+    background-color: white;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.youWinP {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    align-items: center;
+}
+
+.youWinP1 {
+    color: white;
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.youWinP2 {
+    color: white;
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.youWinButton {
+    padding: 10px;
+    color: #6B6B6B;
+    border-radius: 10px;
+    border: none;
+    width: 150px;
+    height: 40px;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.div4Reapaet {
+    background-color: #FFA943;
+    width: 185px;
+    height: 185px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.youWinButtonRules {
+    display: flex;
+    gap: 30px;
+    justify-content: right;
+    margin-right: 30px;
+}
+
+.rulesButtonNextRules {
+    letter-spacing: 2px;
+    background-color: transparent;
+    padding: 7px;
+    border: 2px solid white;
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+    width: 120px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.rulesButtonNext {
+    letter-spacing: 2px;
+    background-color: transparent;
+    padding: 7px;
+    border: 2px solid white;
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+    width: 120px;
+    font-weight: bold;
     cursor: pointer;
 }
