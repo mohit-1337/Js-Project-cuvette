@@ -43,6 +43,97 @@ function updateScore() {
   localStorage.setItem("yourScore", yourScore);
 }
 
+// Function to update the image inside div5 and div4ReapaetBlue based on player's selection
+function updatePlayerImage(playerSelection) {
+  let imgSrc = ""; // Variable to store the image source
+
+  // Determine the image source based on player's selection
+  switch (playerSelection) {
+    case "rock":
+      imgSrc = "./img/ROCK.png";
+      break;
+    case "paper":
+      imgSrc = "./img/PAPER.png";
+      break;
+    case "scissors":
+      imgSrc = "./img/SCISSORS.png";
+      break;
+  }
+
+  // Update the image source inside the div5
+  const userImg = document.querySelector(".userWin img");
+
+  // Update the image source based on result
+  if (userImg) {
+    userImg.src = imgSrc;
+  }
+
+  // Update the image source inside the div5
+  const userImg1 = document.querySelector(".userLost img");
+
+  // Update the image source based on result
+  if (userImg1) {
+    userImg1.src = imgSrc;
+  }
+
+  // Update the image source inside the div5
+  const userImg2 = document.querySelector(".userTie img");
+
+  // Update the image source based on result
+  if (userImg2) {
+    userImg2.src = imgSrc;
+  }
+}
+
+// Function to randomly select computer's choice
+function computerPlay() {
+  const choices = ["rock", "paper", "scissors"];
+  return choices[Math.floor(Math.random() * choices.length)];
+}
+
+// Function to update the image inside div4Reapaet based on computer's selection
+function updateComputerImage(computerSelection, result) {
+  let imgSrc = ""; // Variable to store the image source
+
+  // Determine the image source based on computer's selection
+  switch (computerSelection) {
+    case "rock":
+      imgSrc = "./img/ROCK.png";
+      break;
+    case "paper":
+      imgSrc = "./img/PAPER.png";
+      break;
+    case "scissors":
+      imgSrc = "./img/SCISSORS.png";
+      break;
+  }
+
+  // Update the image source inside the div4Reapaet
+  const compImg = document.querySelector(".compWin img");
+
+  // Update the image source based on result
+  if (compImg) {
+    compImg.src = imgSrc;
+  }
+  const compImg1 = document.querySelector(".compLost img");
+  if (compImg1) {
+    compImg1.src = imgSrc;
+  }
+
+  const compImg2 = document.querySelector(".compTie img");
+  if (compImg2) {
+    compImg2.src = imgSrc;
+  }
+
+  if (result == "win") {
+    compImg.src = imgSrc; // For a win, update the win image
+  } else if (result == "lost") {
+    compImg1.src = imgSrc; // For a loss, update the loss image
+  } else {
+    compImg2.src = imgSrc; // For a tie, update the tie image
+  }
+}
+
 // Function to play a round of the game
 function playRound(playerSelection) {
   const computerSelection = computerPlay();
@@ -55,53 +146,61 @@ function playRound(playerSelection) {
   ) {
     // Player wins
     yourScore++;
-    updateScore();
     resultMessage =
       "You win! " + playerSelection + " beats " + computerSelection;
-    // Open the victory page
-    document.querySelector(".home").style.display = "none";
-    document.querySelector(".winwin").style.display = "block";
-    document.querySelector(".rulesButton").style.display = "none";
+    // Update the image based on player's selection
+    updatePlayerImage(playerSelection, "win");
+    // Update the image based on computer's selection
+    updateComputerImage(computerSelection, "lost");
   } else if (playerSelection === computerSelection) {
     // It's a tie
     resultMessage = "It's a tie!";
+    // Update the image based on player's selection
+    updatePlayerImage(playerSelection, "tie");
+    // Update the image based on computer's selection
+    updateComputerImage(computerSelection, "tie");
   } else {
     // Computer wins
     compScore++;
-    updateScore();
     resultMessage =
       "You lose! " + computerSelection + " beats " + playerSelection;
+    // Update the image based on player's selection
+    updatePlayerImage(playerSelection, "lost");
+    // Update the image based on computer's selection
+    updateComputerImage(computerSelection, "win");
   }
 
-  //   alert(resultMessage);
+  // Update the score on the page
+  updateScore();
+
+  // Open the appropriate result page
+  if (resultMessage.includes("win")) {
+    document.querySelector(".home").style.display = "none";
+    document.querySelector(".winwin").style.display = "block";
+    document.querySelector(".rulesButton").style.display = "none";
+  } else if (resultMessage.includes("lose")) {
+    document.querySelector(".home").style.display = "none";
+    document.querySelector(".lost").style.display = "block";
+    document.querySelector(".rulesButton").style.display = "none";
+  } else {
+    document.querySelector(".home").style.display = "none";
+    document.querySelector(".tie").style.display = "block";
+    document.querySelector(".rulesButton").style.display = "none";
+  }
 }
 
-// Function to handle when the user selects rock
+// Event listeners for player's selections
 document.querySelector(".blue").addEventListener("click", function () {
-  const playerSelection = "rock";
-  const result = playRound(playerSelection);
-  //   alert(result);
+  playRound("rock");
 });
 
-// Function to handle when the user selects scissors
 document.querySelector(".pink").addEventListener("click", function () {
-  const playerSelection = "scissors";
-  const result = playRound(playerSelection);
-  //   alert(result);
+  playRound("scissors");
 });
 
-// Function to handle when the user selects paper
 document.querySelector(".paperDiv").addEventListener("click", function () {
-  const playerSelection = "paper";
-  const result = playRound(playerSelection);
-  //   alert(result);
+  playRound("paper");
 });
-
-// Function to randomly select computer's choice
-function computerPlay() {
-  const choices = ["rock", "paper", "scissors"];
-  return choices[Math.floor(Math.random() * choices.length)];
-}
 
 // Function to restore scores from local storage when the page loads
 window.addEventListener("DOMContentLoaded", () => {
@@ -109,17 +208,105 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // play again button
-
 document.querySelector(".youWinButton").addEventListener("click", function () {
   document.querySelector(".winwin").style.display = "none";
   document.querySelector(".home").style.display = "flex";
-  document.querySelector(".rulesButton").style.display = "block";
+  if (document.querySelector(".notice").classList.contains("visible")) {
+    document.querySelector(".rulesButton").style.display = "none";
+  } else {
+    document.querySelector(".rulesButton").style.display = "block";
+  }
+});
+
+document.querySelector(".youLostButton").addEventListener("click", function () {
+  document.querySelector(".lost").style.display = "none";
+  document.querySelector(".home").style.display = "flex";
+  if (document.querySelector(".notice").classList.contains("visible")) {
+    document.querySelector(".rulesButton").style.display = "none";
+  } else {
+    document.querySelector(".rulesButton").style.display = "block";
+  }
 });
 
 document
   .querySelector(".rulesButtonNextRules")
   .addEventListener("click", function () {
-    document.querySelector(".notice").classList.add("visible");
     document.querySelector(".winwin").style.display = "none";
     document.querySelector(".home").style.display = "flex";
+    if (document.querySelector(".notice").classList.contains("visible")) {
+      document.querySelector(".rulesButton").style.display = "none";
+    } else {
+      document.querySelector(".rulesButton").style.display = "block";
+    }
+  });
+
+document
+  .querySelector(".youLostRulesButtonNextRules")
+  .addEventListener("click", function () {
+    // document.querySelector(".notice").classList.add("visible");
+    document.querySelector(".lost").style.display = "none";
+    document.querySelector(".home").style.display = "flex";
+    if (document.querySelector(".notice").classList.contains("visible")) {
+      document.querySelector(".rulesButton").style.display = "none";
+    } else {
+      document.querySelector(".rulesButton").style.display = "block";
+    }
+  });
+
+document.querySelector(".replayButton").addEventListener("click", function () {
+  if (document.querySelector(".notice").classList.contains("visible")) {
+    document.querySelector(".rulesButton").style.display = "none";
+  } else {
+    document.querySelector(".rulesButton").style.display = "block";
+  }
+  document.querySelector(".tie").style.display = "none";
+  document.querySelector(".home").style.display = "flex";
+});
+
+document
+  .querySelector(".youTieRulesButtonNextRules")
+  .addEventListener("click", function () {
+    if (document.querySelector(".notice").classList.contains("visible")) {
+      document.querySelector(".rulesButton").style.display = "none";
+    } else {
+      document.querySelector(".rulesButton").style.display = "block";
+    }
+    document.querySelector(".lost").style.display = "none";
+    document.querySelector(".home").style.display = "flex";
+    // document.querySelector(".youTieRulesButtonNextRules").style.display = "none";
+    
+  });
+
+document
+  .querySelector(".hurrayPlayButton")
+  .addEventListener("click", function () {
+    document.querySelector(".hurraySection").style.display = "none";
+    document.querySelector(".home").style.display = "flex";
+    if (document.querySelector(".notice").classList.contains("visible")) {
+      document.querySelector(".rulesButton").style.display = "none";
+    } else {
+      document.querySelector(".rulesButton").style.display = "block";
+    }
+    document.querySelector(".headSection").style.display = "block";
+  });
+
+document
+  .querySelector(".hurrayRulesButton")
+  .addEventListener("click", function () {
+    document.querySelector(".hurraySection").style.display = "none";
+    document.querySelector(".home").style.display = "flex";
+    if (document.querySelector(".notice").classList.contains("visible")) {
+      document.querySelector(".rulesButton").style.display = "none";
+    } else {
+      document.querySelector(".rulesButton").style.display = "block";
+    }
+    document.querySelector(".headSection").style.display = "block";
+  });
+
+document
+  .querySelector(".rulesButtonNext")
+  .addEventListener("click", function () {
+    document.querySelector(".hurraySection").style.display = "block";
+    document.querySelector(".winwin").style.display = "none";
+    document.querySelector(".headSection").style.display = "none";
   });
