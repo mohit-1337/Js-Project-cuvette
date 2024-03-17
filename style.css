@@ -11,6 +11,60 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
+/* Adjustments for different screen ratios */
+@media screen and (max-width: 1200px) {
+    /* Adjust margins, paddings, and sizes as needed */
+    .headDiv {
+        margin-inline: 10%;
+    }
+
+    .mainDiv {
+        margin-inline: 5%;
+    }
+
+    .notice {
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .rulesButton {
+        margin-left: 80%;
+    }
+
+    .youWinMainDiv {
+        margin-left: 20%;
+    }
+
+    .youLost {
+        margin-left: 5%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* Further adjustments for smaller screens */
+    .headDiv {
+        margin-inline: 5%;
+    }
+
+    .mainDiv {
+        margin-inline: 3%;
+    }
+
+    .rulesButton {
+        margin-left: 70%;
+    }
+
+    .youWinMainDiv {
+        margin-left: 10%;
+    }
+
+    .youLost {
+        margin-left: 3%;
+    }
+}
+
+/* Add more media queries as needed */
+
 /* head */
 .headDiv {
     margin-inline: 250px;
@@ -109,6 +163,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: white;
+    cursor: pointer;
 }
 
 .imgRock,
@@ -277,7 +332,6 @@ body {
     border-radius: 50%;
     align-items: center;
     text-align: center;
-    /* Remove or modify the z-index property */
     z-index: 1;
     /* Set it to 1 or a higher value */
     cursor: pointer;
@@ -428,7 +482,6 @@ body {
     font-size: 15px;
     letter-spacing: 2px;
     cursor: pointer;
-    margin-top: 10px;
 }
 
 .div4Reapaet {
@@ -506,7 +559,6 @@ body {
     font-size: 15px;
     letter-spacing: 2px;
     cursor: pointer;
-    margin-top: 10px;
 }
 
 .youLostRulesButtonNextRules {
@@ -560,7 +612,6 @@ body {
     font-size: 15px;
     letter-spacing: 2px;
     cursor: pointer;
-    margin-top: 10px;
 }
 
 .tieRulesButton {
@@ -589,8 +640,6 @@ body {
     cursor: pointer;
     margin-top: 100px;
     margin-left: 1150px;
-    /* position: absolute;
-    top: 580px; */
 }
 
 /* hurray */
@@ -666,4 +715,4 @@ body {
     position: absolute;
     right: 30px;
     bottom: 15px;
-} 
+}
