@@ -62,24 +62,16 @@ function updatePlayerImage(playerSelection) {
 
   // Update the image source inside the div5
   const userImg = document.querySelector(".userWin img");
-
-  // Update the image source based on result
   if (userImg) {
     userImg.src = imgSrc;
   }
 
-  // Update the image source inside the div5
   const userImg1 = document.querySelector(".userLost img");
-
-  // Update the image source based on result
   if (userImg1) {
     userImg1.src = imgSrc;
   }
 
-  // Update the image source inside the div5
   const userImg2 = document.querySelector(".userTie img");
-
-  // Update the image source based on result
   if (userImg2) {
     userImg2.src = imgSrc;
   }
@@ -93,7 +85,7 @@ function computerPlay() {
 
 // Function to update the image inside div4Reapaet based on computer's selection
 function updateComputerImage(computerSelection, result) {
-  let imgSrc = ""; // Variable to store the image source
+  let imgSrc = ""; 
 
   // Determine the image source based on computer's selection
   switch (computerSelection) {
@@ -110,8 +102,6 @@ function updateComputerImage(computerSelection, result) {
 
   // Update the image source inside the div4Reapaet
   const compImg = document.querySelector(".compWin img");
-
-  // Update the image source based on result
   if (compImg) {
     compImg.src = imgSrc;
   }
@@ -126,11 +116,11 @@ function updateComputerImage(computerSelection, result) {
   }
 
   if (result == "win") {
-    compImg.src = imgSrc; // For a win, update the win image
+    compImg.src = imgSrc; 
   } else if (result == "lost") {
-    compImg1.src = imgSrc; // For a loss, update the loss image
+    compImg1.src = imgSrc; 
   } else {
-    compImg2.src = imgSrc; // For a tie, update the tie image
+    compImg2.src = imgSrc; 
   }
 }
 
@@ -243,7 +233,6 @@ document
 document
   .querySelector(".youLostRulesButtonNextRules")
   .addEventListener("click", function () {
-    // document.querySelector(".notice").classList.add("visible");
     document.querySelector(".lost").style.display = "none";
     document.querySelector(".home").style.display = "flex";
     if (document.querySelector(".notice").classList.contains("visible")) {
@@ -273,7 +262,6 @@ document
     }
     document.querySelector(".lost").style.display = "none";
     document.querySelector(".home").style.display = "flex";
-    // document.querySelector(".youTieRulesButtonNextRules").style.display = "none";
     
   });
 
